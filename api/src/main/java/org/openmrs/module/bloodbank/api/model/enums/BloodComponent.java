@@ -1,11 +1,11 @@
 package org.openmrs.module.bloodbank.api.model.enums;
 
-public enum StockStatus {
-	Available("Available"), NotAvailable("Not Available");
+public enum BloodComponent {
+	WholeBlood("Whole Blood"), RCC("RCC"), FFP("FFP"), Platelet("Platelet");
 	
 	private final String value;
 	
-	StockStatus(String value) {
+	BloodComponent(String value) {
 		this.value = value;
 	}
 	

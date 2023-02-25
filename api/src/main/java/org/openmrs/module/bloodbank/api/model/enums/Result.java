@@ -1,7 +1,7 @@
 package org.openmrs.module.bloodbank.api.model.enums;
 
 public enum Result {
-	Positive("Positive"), Negative("Negative"), Reactive("Reactive"), NonReactive("NonReactive");
+	Positive("Positive"), Negative("Negative"), Reactive("Reactive"), NonReactive("Non-Reactive");
 	
 	private final String value;
 	

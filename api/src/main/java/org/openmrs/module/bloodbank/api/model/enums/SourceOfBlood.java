@@ -1,7 +1,7 @@
 package org.openmrs.module.bloodbank.api.model.enums;
 
 public enum SourceOfBlood {
-	NITOR("NITOR"), OutdoorCampaign("OutdoorCampaign"), Outsource("Outsource");
+	NITOR("NITOR"), OutdoorCampaign("Outdoor Campaign"), Outsource("Outsource");
 	
 	private final String value;
 	
