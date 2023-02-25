@@ -178,15 +178,16 @@ public class BloodBankDaoImpl implements BloodBankDao {
     criteria.addOrder(Order.desc("bloodBagId"));
     criteria.setMaxResults(1);
     BloodStockTracing tracing = (BloodStockTracing) criteria.uniqueResult();
-
     if (tracing != null) {
       String previousId = tracing.getBloodBagId();
-      String lastIdYear = previousId.substring(prefix.length(), previousId.indexOf("-"));
-      String newIndex = StringUtils.leftPad(
-          String.valueOf(Integer.parseInt(previousId.split("-")[1]) + 1), 3, "0");
-      if (Objects.equals(lastIdYear, currentYear) && previousId.contains("-")) {
-        bloodBagId = prefix + currentYear + "-" + newIndex;
-        return bloodBagId;
+      if (previousId.contains("-")) {
+        String lastIdYear = previousId.substring(prefix.length(), previousId.indexOf("-"));
+        String newIndex = StringUtils.leftPad(
+            String.valueOf(Integer.parseInt(previousId.split("-")[1]) + 1), 3, "0");
+        if (Objects.equals(lastIdYear, currentYear)) {
+          bloodBagId = prefix + currentYear + "-" + newIndex;
+          return bloodBagId;
+        }
       }
     }
     bloodBagId = prefix + currentYear + "-" + initialValue;
